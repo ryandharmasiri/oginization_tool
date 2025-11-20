@@ -3,57 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organization Tool Layout</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh; /* full viewport height */
-    }
-
-    /* Top title section */
-    #top {
-      background-color: #4CAF50; /* green */
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    /* Middle section */
-    #middle {
-      background-color: #FFD700; /* gold */
-      flex: 1; /* take remaining space */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-    }
-
-    /* Bottom section */
-    #bottom {
-      background-color: #1E90FF; /* blue */
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 1.5rem;
-    }
-
-    /* Make sure it’s responsive */
-    @media (max-width: 600px) {
-      #top { font-size: 1.5rem; padding: 20px 0; }
-      #middle { font-size: 1.2rem; }
-      #bottom { font-size: 1.2rem; padding: 15px 0; }
-    }
-  </style>
+  <title>Organization Tool</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="top">Organization Tool</div>
-  <div id="middle">Field 2</div>
+
+  <div id="middle">
+    <!-- Content Block 1: Calendar -->
+    <div class="content-block" id="calendarBlock">
+      <div class="calendar">
+        <div class="calendar-grid" id="calendarGrid">
+          <div class="calendar-header">
+            <button id="prevMonth">&lt;</button>
+            <div id="monthYear"></div>
+            <button id="nextMonth">&gt;</button>
+          </div>
+          <!-- Days of the week and dates will be rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Other content blocks -->
+    <div class="content-block">Field 2 - Content Block 2</div>
+    <div class="content-block">Field 2 - Content Block 3</div>
+  </div>
+
   <div id="bottom">Field 3</div>
+
+  <script src="calendar.js"></script>
 </body>
 </html>
