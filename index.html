@@ -34,7 +34,7 @@
   <header>Organizational Calendar</header>
   <div id="calendar"></div>
 
-  <!-- FullCalendar JS -->
+  <!-- FullCalendar JS (core + dayGrid plugin) -->
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -48,9 +48,9 @@
           right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
         events: [
-          { title: 'Team Meeting', start: '2025-11-21', end: '2025-11-21' },
-          { title: 'Project Deadline', start: '2025-11-25', end: '2025-11-25' },
-          { title: 'Office Event', start: '2025-11-28', end: '2025-11-28' }
+          { title: 'Team Meeting', start: '2025-11-21' },
+          { title: 'Project Deadline', start: '2025-11-25' },
+          { title: 'Office Event', start: '2025-11-28' }
         ],
         height: '100%',
         editable: false,
