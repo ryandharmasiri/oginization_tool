@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My First GitHub Website</title>
-  </head>
-  <body>
-    <h1>Hello from GitHub Pages!</h1>
-    <p>This is my first website.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizational Calendar</title>
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    #calendar {
+      flex: 1;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Organizational Calendar</header>
+  <div id="calendar"></div>
+
+  <!-- FullCalendar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          { title: 'Team Meeting', start: '2025-11-21', end: '2025-11-21' },
+          { title: 'Project Deadline', start: '2025-11-25', end: '2025-11-25' },
+          { title: 'Office Event', start: '2025-11-28', end: '2025-11-28' }
+        ],
+        height: '100%',
+        editable: false,
+        dayMaxEvents: true
+      });
+
+      calendar.render();
+    });
+  </script>
+</body>
 </html>
