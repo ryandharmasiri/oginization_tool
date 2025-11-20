@@ -36,6 +36,9 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Bottom section */
@@ -49,16 +52,17 @@ body {
 
 /* Calendar styling */
 .calendar {
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
+  width: 100%;          /* fill the parent block */
+  max-width: 100%;      /* allow full width on small screens */
+  box-sizing: border-box;
 }
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr); /* 7 equal columns */
   gap: 2px;
   box-sizing: border-box;
+  width: 100%; /* stretch grid across parent block */
 }
 
 .calendar-header {
@@ -67,13 +71,15 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+  padding: 0 5px;
 }
 
 .calendar-grid div {
-  padding: 10px;
+  padding: 10px 0;
   text-align: center;
   border-radius: 4px;
   box-sizing: border-box;
+  word-wrap: break-word; /* prevents overflow on small screens */
 }
 
 .day {
@@ -90,10 +96,39 @@ body {
   background-color: #a0e7e5;
 }
 
-/* Responsive adjustments */
+/* Fully responsive calendar */
 @media (max-width: 600px) {
-  #top { font-size: 1.5rem; padding: 20px 0; }
-  #middle { padding: 15px; }
-  .content-block { font-size: 1rem; padding: 15px; }
-  #bottom { font-size: 1.2rem; padding: 15px 0; }
+  #top {
+    font-size: 1.5rem;
+    padding: 20px 0;
+  }
+  
+  #middle {
+    padding: 15px;
+  }
+  
+  .content-block {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
+  #bottom {
+    font-size: 1.2rem;
+    padding: 15px 0;
+  }
+  
+  .calendar-grid div {
+    padding: 6px 0;
+    font-size: 0.8rem;
+  }
+  
+  .calendar-header button {
+    padding: 3px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Optional: make middle div scrollable if content exceeds viewport */
+#middle {
+  overflow-y: auto;
 }
