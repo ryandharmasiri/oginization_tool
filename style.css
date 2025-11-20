@@ -10,7 +10,7 @@ body {
 
 /* Top title section */
 #top {
-  background-color: #4CAF50; /* green */
+  background-color: #ccb689; /* Beige */
   color: white;
   text-align: center;
   padding: 30px 0;
@@ -20,7 +20,7 @@ body {
 
 /* Middle section */
 #middle {
-  background-color: #FFD700; /* gold */
+  background-color: #f7f2e6; /* Egg Shell White */
   flex: 1;
   padding: 20px;
   display: flex;
@@ -43,8 +43,8 @@ body {
 
 /* Bottom section */
 #bottom {
-  background-color: #1E90FF; /* blue */
-  color: white;
+  background-color: #f7f2e6; /* Egg Shell White */
+  color: black;
   text-align: center;
   padding: 20px 0;
   font-size: 1.5rem;
