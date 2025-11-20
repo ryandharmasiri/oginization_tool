@@ -25,12 +25,22 @@
     </div>
 
     <!-- Other content blocks -->
-    <div class="content-block">Field 2 - Content Block 2</div>
+    <!-- Field 2 - Content Block 2: To-Do List -->
+	<div class="content-block" id="todoBlock">
+	  <h2>To-Do List</h2>
+	  <div id="todoForm">
+		<input type="text" id="todoInput" placeholder="Enter a task..." />
+		<button id="addTodoBtn">Add</button>
+	  </div>
+	  <ul id="todoList"></ul>
+	</div>
     <div class="content-block">Field 2 - Content Block 3</div>
   </div>
 
   <div id="bottom">Field 3</div>
 
   <script src="calendar.js"></script>
+  <script src="todo.js"></script>
+  <!-- <scoped src="main.js"></script> -->
 </body>
 </html>

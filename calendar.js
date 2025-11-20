@@ -1,3 +1,4 @@
+// ==== Calendar Setup ====
 const monthNames = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -8,13 +9,25 @@ let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 
+// global variable for selected date
+let selectedDate = formatDate(today);
+
 const monthYearEl = document.getElementById("monthYear");
 const calendarGridEl = document.getElementById("calendarGrid");
 const prevMonthBtn = document.getElementById("prevMonth");
 const nextMonthBtn = document.getElementById("nextMonth");
 
+// ==== Utility to format date as YYYY-MM-DD ====
+function formatDate(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+// ==== Render Calendar ====
 function renderCalendar(month, year) {
-  // Remove previous days/dates (keep header)
+  // Remove previous days/dates
   calendarGridEl.querySelectorAll(".day, .date, .empty").forEach(el => el.remove());
 
   // Set header
@@ -44,16 +57,29 @@ function renderCalendar(month, year) {
     dateEl.classList.add("date");
     dateEl.textContent = date;
 
+    const fullDate = `${year}-${String(month + 1).padStart(2,"0")}-${String(date).padStart(2,"0")}`;
+
     // Highlight today
-    if (date === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-      dateEl.classList.add("today");
-    }
+    if (fullDate === formatDate(today)) dateEl.classList.add("today");
+
+    // Highlight selected date
+    if (fullDate === selectedDate) dateEl.classList.add("selected");
+
+    // Click to select date
+    dateEl.addEventListener("click", () => {
+      selectedDate = fullDate;
+      renderCalendar(currentMonth, currentYear);
+
+      // Dispatch custom event for To-Do List
+      const event = new CustomEvent("dateChanged", { detail: selectedDate });
+      document.dispatchEvent(event);
+    });
 
     calendarGridEl.appendChild(dateEl);
   }
 }
 
-// Navigation buttons
+// ==== Calendar Navigation ====
 prevMonthBtn.addEventListener("click", () => {
   currentMonth--;
   if (currentMonth < 0) {
@@ -72,5 +98,5 @@ nextMonthBtn.addEventListener("click", () => {
   renderCalendar(currentMonth, currentYear);
 });
 
-// Initial render
+// ==== Initial render ====
 renderCalendar(currentMonth, currentYear);
