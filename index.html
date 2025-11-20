@@ -3,62 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organizational Calendar</title>
-  <!-- FullCalendar CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+  <title>Organization Tool Layout</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      height: 100vh;
+      min-height: 100vh; /* full viewport height */
     }
-    header {
-      background-color: #007bff;
+
+    /* Top title section */
+    #top {
+      background-color: #4CAF50; /* green */
       color: white;
       text-align: center;
-      padding: 15px 0;
-      font-size: 1.5rem;
+      padding: 30px 0;
+      font-size: 2rem;
       font-weight: bold;
     }
-    #calendar {
-      flex: 1;
-      padding: 10px;
+
+    /* Middle section */
+    #middle {
+      background-color: #FFD700; /* gold */
+      flex: 1; /* take remaining space */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+
+    /* Bottom section */
+    #bottom {
+      background-color: #1E90FF; /* blue */
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.5rem;
+    }
+
+    /* Make sure it’s responsive */
+    @media (max-width: 600px) {
+      #top { font-size: 1.5rem; padding: 20px 0; }
+      #middle { font-size: 1.2rem; }
+      #bottom { font-size: 1.2rem; padding: 15px 0; }
     }
   </style>
 </head>
 <body>
-
-  <header>Organizational Calendars</header>
-  <div id="calendar"></div>
-
-  <!-- FullCalendar JS (core + dayGrid plugin) -->
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        events: [
-          { title: 'Team Meeting', start: '2025-11-21' },
-          { title: 'Project Deadline', start: '2025-11-25' },
-          { title: 'Office Event', start: '2025-11-28' }
-        ],
-        height: '100%',
-        editable: false,
-        dayMaxEvents: true
-      });
-
-      calendar.render();
-    });
-  </script>
+  <div id="top">Organization Tool</div>
+  <div id="middle">Field 2</div>
+  <div id="bottom">Field 3</div>
 </body>
 </html>
